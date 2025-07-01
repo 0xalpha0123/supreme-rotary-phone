@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { RotateCcw, X, Circle, CheckCircle, AlertCircle, Trash2 } from "lucide-react"
 import ThemeToggle from "./ThemeToggle"
@@ -58,7 +58,7 @@ const TicTacToe = () => {
     if (isMuted) return
     
     try {
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
+      const audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)()
       const oscillator = audioContext.createOscillator()
       const gainNode = audioContext.createGain()
       
@@ -73,14 +73,14 @@ const TicTacToe = () => {
       
       oscillator.start(audioContext.currentTime)
       oscillator.stop(audioContext.currentTime + duration / 1000)
-    } catch (error) {
+    } catch {
       console.log('Audio not supported')
     }
   }
 
   const playMoveSound = () => playSound(800, 150)
-  const playWinSound = () => playSound(1200, 500)
-  const playDrawSound = () => playSound(600, 300)
+  const playWinSound = useCallback(() => playSound(1200, 500), [])
+  const playDrawSound = useCallback(() => playSound(600, 300), [])
 
   const showToast = (message: string, type: "success" | "warning") => {
     const newToast: Toast = {
@@ -150,7 +150,7 @@ const TicTacToe = () => {
         draws: prev.draws + 1
       }))
     }
-  }, [gameState.winner, gameState.isDraw])
+  }, [gameState.winner, gameState.isDraw, playWinSound, playDrawSound])
 
   const resetGame = () => {
     setGameState({
@@ -172,15 +172,7 @@ const TicTacToe = () => {
     showToast("Score reset!", "warning")
   }
 
-  const getStatusMessage = () => {
-    if (gameState.winner) {
-      return `Player ${gameState.winner} wins!`
-    }
-    if (gameState.isDraw) {
-      return "It's a draw!"
-    }
-    return `Player ${gameState.currentPlayer}'s turn`
-  }
+
 
   // Find winning line
   const getWinningLine = (board: Player[]): number[] | null => {
@@ -268,7 +260,7 @@ const TicTacToe = () => {
                 border border-gray-200 dark:border-gray-700 transition-colors duration-200 animate-fade-in
               `}>
                 {gameState.currentPlayer === "X" ? <X className="w-4 h-4" /> : <Circle className="w-4 h-4" />}
-                Player {gameState.currentPlayer}'s turn
+                Player {gameState.currentPlayer}&apos;s turn
               </span>
             </div>
             {/* Score Display */}

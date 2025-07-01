@@ -1,0 +1,5 @@
+{
+    "env": {
+        "SKIP_ESLINT": "true"
+    }
+}
