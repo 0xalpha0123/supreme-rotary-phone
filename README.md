@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tic-Tac-Toe
 
-## Getting Started
+A modern, accessible, and responsive Tic-Tac-Toe game built with **React 19**, **Next.js 15**, **Tailwind CSS 4**, and **shadcn/ui**.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Classic Tic-Tac-Toe** gameplay (2 players)
+- **Responsive design** for mobile, tablet, and desktop
+- **Light, dark, and system theme** toggle
+- **Score tracking** for X, O, and draws
+- **Reset** for game and score
+- **Accessible**: aria-labels, keyboard navigation, focus states
+- **Player indicator** with icon and color
+- **Highlight winning line**
+- **Sound effects** for moves, wins, and draws (with mute toggle)
+- **Beautiful UI** with shadcn/ui and Tailwind
+- **Deployed on Vercel**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [React 19](https://react.dev/)
+- [Next.js 15 (App Router)](https://nextjs.org/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Lucide Icons](https://lucide.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Getting Started
 
-## Learn More
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/your-username/tic-tac-toe.git
+   cd tic-tac-toe
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-To learn more about Next.js, take a look at the following resources:
+4. **Build for production:**
+   ```bash
+   npm run build
+   npm start
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌈 Accessibility & UX
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Keyboard navigation:**
+  - Use Tab/Shift+Tab to move between cells and buttons
+  - Use Arrow keys to move between board cells
+  - Use Enter/Space to place a mark
+- **Screen reader support:**
+  - All buttons and cells have descriptive `aria-label`s
+- **Focus states:**
+  - All interactive elements have visible focus rings
+- **Player indicator:**
+  - Shows whose turn it is with color and icon
+- **Winning line:**
+  - Highlights the three winning cells
+- **Sound effects:**
+  - Move, win, and draw sounds (with mute toggle)
 
-## Deploy on Vercel
+## 🖼️ Screenshots
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Light mode screenshot](./public/screenshot-light.png)
+![Dark mode screenshot](./public/screenshot-dark.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌐 Deployment
+
+This app is ready to deploy on [Vercel](https://vercel.com/):
+
+1. **Push to GitHub**
+2. **Import your repo on Vercel**
+3. **Set build command:** `npm run build`
+4. **Set output directory:** `.next`
+5. **Deploy!**
+
+## 📄 License
+
+MIT
+
+---
+
+Made with ❤️ for the CAPM/SEMProve coding challenge.
