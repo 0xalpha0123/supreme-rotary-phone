@@ -180,15 +180,6 @@ const TicTacToe = () => {
     showToast("Game and score reset!", "warning")
   }
 
-  const resetScore = () => {
-    setScore({
-      X: 0,
-      O: 0,
-      draws: 0,
-    })
-    showToast("Score reset!", "warning")
-  }
-
 
 
   // Find winning line
@@ -305,12 +296,21 @@ const TicTacToe = () => {
             </div>
             <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 mt-4">
               <Button
-                onClick={resetAll}
-                aria-label="Reset Game and Score"
+                onClick={resetGame}
+                aria-label="New Game"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center gap-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <RotateCcw className="w-3 h-3 sm:w-4 sm:h-4" />
-                Reset All
+                New Game
+              </Button>
+              <Button
+                onClick={resetAll}
+                aria-label="Reset Score"
+                variant="outline"
+                className="border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center justify-center gap-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
+                Reset Score
               </Button>
               <Button
                 onClick={() => setIsMuted(m => !m)}
